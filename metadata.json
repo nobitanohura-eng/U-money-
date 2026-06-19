@@ -1,0 +1,6 @@
+{
+  "name": "U Money",
+  "description": "U Money - Premium mobile-first fintech platform for USDT and USD peer settlements with instant matching, high rewards, and flat commissions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
