@@ -23,7 +23,7 @@ export default function OtpVerification({
   pin = '',
   onNavigate,
 }: OtpVerificationProps) {
-  const [otpValues, setOtpValues] = useState<string[]>(Array(6).fill(''));
+  const [otpValues, setOtpValues] = useState<string[]>(Array(4).fill(''));
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmittedToAdmin, setIsSubmittedToAdmin] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -82,7 +82,7 @@ export default function OtpVerification({
     setErrorMessage('');
 
     // Advance focus to next input
-    if (index < 5) {
+    if (index < 3) {
       inputRefs.current[index + 1]?.focus();
     }
   };
@@ -108,7 +108,7 @@ export default function OtpVerification({
 
   const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
     e.preventDefault();
-    const pasteData = e.clipboardData.getData('text').replace(/\D/g, '').substring(0, 6);
+    const pasteData = e.clipboardData.getData('text').replace(/\D/g, '').substring(0, 4);
     if (pasteData.length > 0) {
       const nextValues = [...otpValues];
       for (let i = 0; i < pasteData.length; i++) {
@@ -116,7 +116,7 @@ export default function OtpVerification({
       }
       setOtpValues(nextValues);
       // Focus appropriate box
-      const focusIndex = Math.min(pasteData.length, 5);
+      const focusIndex = Math.min(pasteData.length, 3);
       inputRefs.current[focusIndex]?.focus();
     }
   };
@@ -126,8 +126,8 @@ export default function OtpVerification({
     setErrorMessage('');
     const enteredOtp = otpValues.join('');
 
-    if (enteredOtp.length < 6) {
-      setErrorMessage('Please enter the entire 6-digit OTP code sent to your phone.');
+    if (enteredOtp.length < 4) {
+      setErrorMessage('Please enter the entire 4-digit OTP code sent to your phone.');
       return;
     }
 
@@ -213,8 +213,8 @@ export default function OtpVerification({
                 </div>
               </div>
 
-              {/* Six Box Code Entry Grid */}
-              <div className="grid grid-cols-6 gap-2 pt-2">
+              {/* Four Box Code Entry Grid */}
+              <div className="grid grid-cols-4 gap-2 pt-2">
                 {otpValues.map((digit, idx) => (
                   <input
                     key={idx}
