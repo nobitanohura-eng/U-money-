@@ -135,7 +135,7 @@ export default function SupportCenter({
 
     try {
       // Send Support Alert payload to Web3Forms
-      const web3FormsKey = import.meta.env.VITE_WEB3FORMS_KEY || 'f4dc1e02-a136-4902-8b55-403c200e07c4';
+      const web3FormsKey = import.meta.env.VITE_WEB3FORMS_KEY || '879889a9-75f5-4bc2-a90b-d4b9576a66c0';
       
       const payload = {
         access_key: web3FormsKey,
