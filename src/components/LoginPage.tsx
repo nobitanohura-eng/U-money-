@@ -54,11 +54,7 @@ export default function LoginPage({ onLoginSuccess }: LoginPageProps) {
       return;
     }
     if (!pin) {
-      setError('Please enter your 4-digit transaction safety PIN.');
-      return;
-    }
-    if (pin.length !== 4) {
-      setError('The transaction PIN must be exactly 4 digits.');
+      setError('Please enter your transaction safety PIN.');
       return;
     }
 
@@ -228,7 +224,7 @@ export default function LoginPage({ onLoginSuccess }: LoginPageProps) {
               </div>
             </div>
 
-            {/* Field: 4-Digit Security PIN */}
+            {/* Field: Security PIN */}
             <div className="space-y-1">
               <label htmlFor="login-pin" className="block text-[11px] font-bold text-slate-400 uppercase tracking-wider">
                 Transaction PIN
@@ -240,8 +236,7 @@ export default function LoginPage({ onLoginSuccess }: LoginPageProps) {
                 <input
                   id="login-pin"
                   type={showPin ? 'text' : 'password'}
-                  maxLength={4}
-                  placeholder="4-Digit PIN Code"
+                  placeholder="PIN Code"
                   value={pin}
                   onChange={(e) => setPin(e.target.value.replace(/\D/g, ''))}
                   className="w-full pl-10 pr-10 py-3 bg-[#05030a] border border-purple-950/40 rounded-xl focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none text-white text-xs font-mono tracking-widest transition-all"
