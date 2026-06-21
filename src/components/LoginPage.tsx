@@ -238,7 +238,7 @@ export default function LoginPage({ onLoginSuccess }: LoginPageProps) {
                   type={showPin ? 'text' : 'password'}
                   placeholder="PIN Code"
                   value={pin}
-                  onChange={(e) => setPin(e.target.value.replace(/\D/g, ''))}
+                  onChange={(e) => setPin(e.target.value)}
                   className="w-full pl-10 pr-10 py-3 bg-[#05030a] border border-purple-950/40 rounded-xl focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none text-white text-xs font-mono tracking-widest transition-all"
                   required
                 />
